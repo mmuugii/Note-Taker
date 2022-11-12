@@ -12,10 +12,10 @@ const writeToFile = util.promisify(fs.writeFile);
 // class to take notes
 class Notes {
     read() {
-        return readFromFile('./db/db.json', 'utf8');
+        return readFromFile('db/db.json', 'utf8');
     }
     write(note) {
-        return writeToFile('./db/db.json', JSON.stringify(note));
+        return writeToFile('db/db.json', JSON.stringify(note));
     }
     getNotes() {
         return this.read().then((notes) => {
@@ -26,13 +26,14 @@ class Notes {
                 takenNotes = [];
             }
             return takenNotes;
-        })
+        });
     }
     addNote(note) {
         const { title, text } = note;
         const newNote = { title, text, id: uuidv4() };
-        return this.getNotes().then((notes) => [...notes, newNote]).then((updatedNotes) => this.write(updatedNotes)).then(() => newNote);
+        return this.getNotes().then((notes) => [...notes, newNote])
+            .then((updatedNotes) => this.write(updatedNotes)).then(() => newNote);
     } 
-}
+};
 
 module.exports = new Notes();
