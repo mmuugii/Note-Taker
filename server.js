@@ -14,9 +14,8 @@ const html = require('./routes/html/html');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
-app.use('/', html);
 app.use('/api', api);
-
+app.use('/', html);
 
 app.listen(PORT, () => {
     console.log(`Listening on: ${PORT}! Broncos Country, Let's ride!`);
