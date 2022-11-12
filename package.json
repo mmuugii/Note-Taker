@@ -4,7 +4,7 @@
   "description": "This is a standard Note Taker App utilizing primarily utilizing Express JS",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "devStart": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/mmuugii/Note-Taker/issues"
   },
-  "homepage": "https://github.com/mmuugii/Note-Taker#readme"
+  "homepage": "https://github.com/mmuugii/Note-Taker#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
